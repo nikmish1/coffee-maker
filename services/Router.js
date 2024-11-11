@@ -8,7 +8,7 @@ const Router = {
             })
             //Event handler for URL changes
             window.addEventListener("popstate", event => {
-                Router.go(event.state.route, false);
+                Router.go(event.state?.route, false);
             });
         })
         // check the initial url
@@ -34,11 +34,11 @@ const Router = {
                 pageElement.textContent = "Your Order";
                 break;
             default:
-                if (route.startsWith("/product-")) {
+                if (route?.startsWith("/product-")) {
                     pageElement = document.createElement("details-page");
                     pageElement.textContent = "Details";
                     const paramId = route.substring(route.lastIndexOf("-") + 1)
-                    pageElement.dataset.id = paramId;
+                    pageElement.dataset.productId = paramId;
                 }
         }
 
